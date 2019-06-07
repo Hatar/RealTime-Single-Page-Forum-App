@@ -1,11 +1,17 @@
 <?php
 
 namespace App\Model;
-
 use Illuminate\Database\Eloquent\Model;
-
+use App\User;
 class Reply extends Model
 {
+
+    protected $table = 'replies';
+    protected $fillable =[
+        'body',
+        'question_id',
+        'user_id',
+    ];
     public function question()
     {
         return $this->belongsTo(Question::class);
